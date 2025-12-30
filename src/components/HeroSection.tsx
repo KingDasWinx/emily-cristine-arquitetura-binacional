@@ -19,12 +19,12 @@ const HeroSection = () => {
 
           {/* Main Heading */}
           <h1 className="heading-hero text-foreground mb-8 animate-fade-up animate-delay-100 text-balance">
-            Eu transformo espaços de alto padrão com alma, propósito e gestão completa do início ao fim.
+            Nós transformamos espaços de alto padrão com alma, propósito e gestão completa do início ao fim.
           </h1>
 
           {/* Subheadline */}
           <p className="text-body-lg text-muted-foreground max-w-2xl mb-12 animate-fade-up animate-delay-200">
-            Atuo em projetos residenciais e comerciais no Oeste do Paraná e Paraguai, 
+            Atuamos em projetos residenciais e comerciais no Oeste do Paraná e Paraguai, 
             criando ambientes que funcionam na vida real, sem improvisos ou dores de cabeça.
           </p>
 
