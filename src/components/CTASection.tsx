@@ -1,8 +1,10 @@
 import { MessageCircle, ArrowRight } from "lucide-react";
+import { useLanguage } from "@/lib/LanguageContext";
 
 const CTASection = () => {
-  const whatsappLink =
-    "https://api.whatsapp.com/send?phone=5544998164074&text=Olá Emily! Vi seus projetos (LG Importados, etc.) e quero detalhes para meu espaço comercial/residencial.";
+  const { t } = useLanguage();
+  const whatsappMessage = encodeURIComponent(t('cta.whatsapp.message'));
+  const whatsappLink = `https://api.whatsapp.com/send?phone=5544998164074&text=${whatsappMessage}`;
 
   return (
     <section id="contato" className="section-padding bg-primary relative overflow-hidden">
@@ -13,14 +15,10 @@ const CTASection = () => {
       <div className="container-editorial relative z-10">
         <div className="max-w-3xl mx-auto text-center">
           {/* Main Message */}
-          <h2 className="heading-section text-primary-foreground mb-6 animate-fade-up">
-            Projeto bem feito não é luxo.
-            <br />
-            <span className="text-primary-foreground/80">É investimento inteligente.</span>
-          </h2>
+          <h2 className="heading-section text-primary-foreground mb-6 animate-fade-up" dangerouslySetInnerHTML={{ __html: t('cta.title') }} />
 
           <p className="text-body-lg text-primary-foreground/90 mb-10 max-w-xl mx-auto animate-fade-up animate-delay-100">
-            Com experiência binacional e abordagem humanizada, entrego resultados que duram décadas.
+            {t('cta.subtitle')}
           </p>
 
           {/* CTA Button */}
@@ -36,11 +34,13 @@ const CTASection = () => {
                        transition-all duration-300
                        hover:bg-background hover:shadow-elevated hover:scale-105
                        focus:outline-none focus:ring-2 focus:ring-card focus:ring-offset-2 focus:ring-offset-primary
-                       animate-fade-up animate-delay-200"
+                       animate-fade-up animate-delay-200
+                       group relative overflow-hidden"
           >
-            <MessageCircle className="w-6 h-6" />
-            Agende no WhatsApp
-            <ArrowRight className="w-5 h-5" />
+            <span className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/20 to-primary/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500"></span>
+            <MessageCircle className="w-6 h-6 group-hover:rotate-[360deg] group-hover:scale-125 transition-all duration-500" />
+            <span className="group-hover:tracking-wider transition-all duration-300">{t('cta.button')}</span>
+            <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" />
           </a>
         </div>
       </div>

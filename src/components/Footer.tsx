@@ -1,4 +1,7 @@
+import { useLanguage } from "@/lib/LanguageContext";
+
 const Footer = () => {
+  const { t } = useLanguage();
   const currentYear = new Date().getFullYear();
 
   return (
@@ -8,21 +11,21 @@ const Footer = () => {
           {/* Logo/Name */}
           <div className="text-center md:text-left">
             <p className="font-display text-xl text-background font-medium">
-              Emily Cristine
+              {t('footer.brand')}
             </p>
             <p className="text-background/60 text-sm">
-              Arquitetura de Alto Padrão
+              {t('footer.tagline')}
             </p>
           </div>
 
           {/* Copyright */}
           <p className="text-background/50 text-sm">
-            © {currentYear} Emily Cristine. Todos os direitos reservados.
+            © {currentYear} {t('footer.rights')}
           </p>
 
           {/* Location */}
           <p className="text-background/60 text-sm text-center md:text-right">
-            Oeste do Paraná, Brasil & Paraguai
+            {t('footer.location')}
           </p>
         </div>
       </div>

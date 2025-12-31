@@ -1,45 +1,48 @@
 import { FileText, DollarSign, Eye, Heart, Globe } from "lucide-react";
-
-const differentials = [
-  {
-    icon: FileText,
-    title: "Projeto executivo completo",
-    description: "Detalhamento total (elétrica, hidráulica, materiais, normas).",
-  },
-  {
-    icon: DollarSign,
-    title: "Gestão transparente de custos",
-    description: "Orçamentos por etapas, sem surpresas ou improvisos.",
-  },
-  {
-    icon: Eye,
-    title: "Acompanhamento total da obra",
-    description: "Do conceito à entrega final, com controle de prazos.",
-  },
-  {
-    icon: Heart,
-    title: "Abordagem humanizada",
-    description: "Espaços com alma que influenciam emoções e bem-estar.",
-  },
-  {
-    icon: Globe,
-    title: "Atuação binacional",
-    description: "Expertise em projetos BR/PY, incluindo shoppings fronteiriços.",
-  },
-];
+import { useLanguage } from "@/lib/LanguageContext";
 
 const DifferentialsSection = () => {
+  const { t } = useLanguage();
+  
+  const differentials = [
+    {
+      icon: FileText,
+      title: t('differentials.items.complete.title'),
+      description: t('differentials.items.complete.description'),
+    },
+    {
+      icon: DollarSign,
+      title: t('differentials.items.transparent.title'),
+      description: t('differentials.items.transparent.description'),
+    },
+    {
+      icon: Eye,
+      title: t('differentials.items.tracking.title'),
+      description: t('differentials.items.tracking.description'),
+    },
+    {
+      icon: Heart,
+      title: t('differentials.items.humanized.title'),
+      description: t('differentials.items.humanized.description'),
+    },
+    {
+      icon: Globe,
+      title: t('differentials.items.binational.title'),
+      description: t('differentials.items.binational.description'),
+    },
+  ];
+
   return (
     <section id="diferenciais" className="section-padding bg-background">
       <div className="container-editorial">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="heading-section text-foreground mb-4 animate-fade-up">
-            Por Que Escolher Meu Trabalho?
+            {t('differentials.title')}
           </h2>
           <div className="divider-elegant animate-fade-up animate-delay-100" />
           <p className="text-body text-muted-foreground max-w-2xl mx-auto animate-fade-up animate-delay-200">
-            Arquitetura não é só estética. É responsabilidade técnica que protege seu investimento. Eu entrego:
+            {t('differentials.subtitle')}
           </p>
         </div>
 
@@ -65,10 +68,7 @@ const DifferentialsSection = () => {
         </div>
 
         {/* Target Audience Note */}
-        <p className="text-center text-body text-muted-foreground max-w-2xl mx-auto animate-fade-up animate-delay-600">
-          Trabalho com quem valoriza qualidade sobre preço baixo – 
-          <strong className="text-foreground"> empresários, produtores rurais de alto padrão e marcas premium.</strong>
-        </p>
+        <p className="text-center text-body text-muted-foreground max-w-2xl mx-auto animate-fade-up animate-delay-600" dangerouslySetInnerHTML={{ __html: t('differentials.targetNote') }} />
       </div>
     </section>
   );

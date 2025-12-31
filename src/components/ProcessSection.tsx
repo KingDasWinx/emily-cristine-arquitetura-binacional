@@ -1,44 +1,47 @@
-const steps = [
-  {
-    number: "01",
-    title: "Escuta profunda",
-    description: "Entendo suas necessidades, sonhos e desafios antes de qualquer traço.",
-  },
-  {
-    number: "02",
-    title: "Briefing e conceito",
-    description: "Transformo suas ideias em um conceito visual claro e alinhado.",
-  },
-  {
-    number: "03",
-    title: "Projeto técnico completo",
-    description: "Desenvolvimento executivo com todos os detalhamentos necessários.",
-  },
-  {
-    number: "04",
-    title: "Orçamento por etapas",
-    description: "Transparência total com custos divididos e sem surpresas.",
-  },
-  {
-    number: "05",
-    title: "Gestão da obra",
-    description: "Acompanhamento presencial garantindo qualidade e prazos.",
-  },
-  {
-    number: "06",
-    title: "Entrega com alma",
-    description: "Seu espaço pronto para transformar sua vida e rotina.",
-  },
-];
+import { useLanguage } from "@/lib/LanguageContext";
 
 const ProcessSection = () => {
+  const { t } = useLanguage();
+  
+  const steps = [
+    {
+      number: "01",
+      title: t('process.items.listening.title'),
+      description: t('process.items.listening.description'),
+    },
+    {
+      number: "02",
+      title: t('process.items.briefing.title'),
+      description: t('process.items.briefing.description'),
+    },
+    {
+      number: "03",
+      title: t('process.items.technical.title'),
+      description: t('process.items.technical.description'),
+    },
+    {
+      number: "04",
+      title: t('process.items.budget.title'),
+      description: t('process.items.budget.description'),
+    },
+    {
+      number: "05",
+      title: t('process.items.management.title'),
+      description: t('process.items.management.description'),
+    },
+    {
+      number: "06",
+      title: t('process.items.delivery.title'),
+      description: t('process.items.delivery.description'),
+    },
+  ];
   return (
     <section id="processo" className="section-padding bg-card">
       <div className="container-editorial">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="heading-section text-foreground mb-4 animate-fade-up">
-            Meu Processo Passo a Passo
+            {t('process.title')}
           </h2>
           <div className="divider-elegant animate-fade-up animate-delay-100" />
         </div>

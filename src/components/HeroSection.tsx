@@ -1,8 +1,10 @@
 import { MessageCircle } from "lucide-react";
+import { useLanguage } from "@/lib/LanguageContext";
 
 const HeroSection = () => {
-  const whatsappLink =
-    "https://api.whatsapp.com/send?phone=5544998164074&text=Olá! Vim pela landing e quero falar sobre um projeto.";
+  const { t } = useLanguage();
+  const whatsappMessage = encodeURIComponent(t('hero.whatsapp.message'));
+  const whatsappLink = `https://api.whatsapp.com/send?phone=5544998164074&text=${whatsappMessage}`;
 
   return (
     <section className="min-h-screen flex items-center section-padding bg-background relative overflow-hidden">
@@ -14,18 +16,17 @@ const HeroSection = () => {
         <div className="max-w-4xl">
           {/* Eyebrow */}
           <p className="text-primary font-medium tracking-widest uppercase text-sm mb-6 animate-fade-up">
-            Arquitetura de Alto Padrão
+            {t('hero.eyebrow')}
           </p>
 
           {/* Main Heading */}
           <h1 className="heading-hero text-foreground mb-8 animate-fade-up animate-delay-100 text-balance">
-            Nós transformamos espaços de alto padrão com alma, propósito e gestão completa do início ao fim.
+            {t('hero.title')}
           </h1>
 
           {/* Subheadline */}
           <p className="text-body-lg text-muted-foreground max-w-2xl mb-12 animate-fade-up animate-delay-200">
-            Atuamos em projetos residenciais e comerciais no Oeste do Paraná e Paraguai, 
-            criando ambientes que funcionam na vida real, sem improvisos ou dores de cabeça.
+            {t('hero.subtitle')}
           </p>
 
           {/* CTA Button */}
@@ -33,10 +34,11 @@ const HeroSection = () => {
             href={whatsappLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-primary animate-fade-up animate-delay-300"
+            className="btn-primary animate-fade-up animate-delay-300 group relative overflow-hidden"
           >
-            <MessageCircle className="w-5 h-5" />
-            Fale diretamente comigo no WhatsApp
+            <span className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700 ease-in-out"></span>
+            <MessageCircle className="w-5 h-5 group-hover:rotate-12 group-hover:scale-110 transition-transform duration-300" />
+            <span className="group-hover:tracking-wide transition-all duration-300">{t('hero.cta')}</span>
           </a>
         </div>
       </div>

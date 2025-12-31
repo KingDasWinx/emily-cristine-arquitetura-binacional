@@ -1,4 +1,7 @@
 import { useState } from "react";
+import { X } from "lucide-react";
+import ProjectDetailCarousel from "./ProjectDetailCarousel";
+import { useLanguage } from "@/lib/LanguageContext";
 
 // Import project images
 import projectCommercial from "@/assets/project-commercial-1.jpg";
@@ -91,14 +94,21 @@ const projects = [
   },
 ];
 
-const categories = ["Todos", "Comercial", "Residencial", "Interiores"];
-
 const ProjectsSection = () => {
-  const [activeCategory, setActiveCategory] = useState("Todos");
+  const { t } = useLanguage();
+  const [activeCategory, setActiveCategory] = useState(t('projects.categories.all'));
   const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
+  const [lightboxImage, setLightboxImage] = useState<string | null>(null);
+
+  const categories = [
+    t('projects.categories.all'),
+    t('projects.categories.commercial'),
+    t('projects.categories.residential'),
+    t('projects.categories.interiors')
+  ];
 
   const filteredProjects =
-    activeCategory === "Todos"
+    activeCategory === t('projects.categories.all')
       ? projects
       : projects.filter((p) => p.category === activeCategory);
 
@@ -108,11 +118,11 @@ const ProjectsSection = () => {
         {/* Section Header */}
         <div className="text-center mb-12">
           <h2 className="heading-section text-foreground mb-4 animate-fade-up">
-            Meus Projetos Destaque
+            {t('projects.title')}
           </h2>
           <div className="divider-elegant animate-fade-up animate-delay-100" />
           <p className="text-body text-muted-foreground max-w-2xl mx-auto animate-fade-up animate-delay-200">
-            Aqui estão cases reais que provam minha autoridade em projetos no Brasil e Paraguai.
+            {t('projects.subtitle')}
           </p>
         </div>
 
@@ -140,7 +150,7 @@ const ProjectsSection = () => {
               key={project.id}
               className="relative aspect-[4/3] overflow-hidden rounded-lg cursor-pointer group animate-fade-up"
               style={{ animationDelay: `${(index + 4) * 100}ms` }}
-              onClick={() => setSelectedProject(project)}
+              onClick={() => setLightboxImage(project.image)}
             >
               <img
                 src={project.image}
@@ -148,10 +158,10 @@ const ProjectsSection = () => {
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
               {/* Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-0 bg-gradient-to-t from-foreground/80 via-foreground/20 to-transparent transition-opacity duration-500" />
               
               {/* Content */}
-              <div className="absolute inset-0 p-6 flex flex-col justify-end opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+              <div className="absolute inset-0 p-6 flex flex-col justify-end group-hover:opacity-0 transition-opacity duration-500">
                 <span className="text-primary-foreground/80 text-sm font-medium mb-1">
                   {project.category} • {project.location}
                 </span>
@@ -163,50 +173,8 @@ const ProjectsSection = () => {
           ))}
         </div>
 
-        {/* Featured Project Detail - Shopping LG */}
-        <div className="mt-20 bg-background rounded-2xl p-8 md:p-12 animate-fade-up">
-          <div className="grid md:grid-cols-2 gap-8 items-center">
-            <div>
-              <span className="text-primary font-medium text-sm uppercase tracking-widest mb-2 block">
-                Projeto Destaque
-              </span>
-              <h3 className="heading-subsection text-foreground mb-4">
-                Shopping LG Importados – Palotina/PR
-              </h3>
-              <p className="text-body text-muted-foreground mb-6">
-                Projeto comercial de alto impacto na fronteira Brasil–Paraguai.
-              </p>
-              
-              <div className="space-y-4">
-                <div>
-                  <h4 className="font-medium text-foreground mb-1">Desafio:</h4>
-                  <p className="text-muted-foreground text-sm">
-                    Criar shopping funcional e atrativo sem perder controle de custos e prazos.
-                  </p>
-                </div>
-                <div>
-                  <h4 className="font-medium text-foreground mb-1">Minha solução:</h4>
-                  <p className="text-muted-foreground text-sm">
-                    Projeto executivo completo + compatibilização técnica (elétrica, hidráulica, SPDA) + gestão total da obra.
-                  </p>
-                </div>
-                <div>
-                  <h4 className="font-medium text-foreground mb-1">Resultado:</h4>
-                  <p className="text-muted-foreground text-sm">
-                    Espaço organizado, sustentável e pronto para crescer, sem improvisos.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
-              <img
-                src={projectCommercial}
-                alt="Shopping LG Importados"
-                className="w-full h-full object-cover"
-              />
-            </div>
-          </div>
-        </div>
+        {/* Featured Project Detail Carousel */}
+        <ProjectDetailCarousel />
 
         {/* Other Project Types */}
         <div className="grid md:grid-cols-3 gap-6 mt-8">
@@ -242,6 +210,31 @@ const ProjectsSection = () => {
           </div>
         </div>
       </div>
+
+      {/* Lightbox Modal */}
+      {lightboxImage && (
+        <div
+          className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4 animate-fade-in"
+          onClick={() => setLightboxImage(null)}
+        >
+          {/* Close Button */}
+          <button
+            onClick={() => setLightboxImage(null)}
+            className="absolute top-4 right-4 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-all duration-300 z-10"
+            aria-label={t('projects.lightbox.close')}
+          >
+            <X className="w-6 h-6" />
+          </button>
+
+          {/* Image */}
+          <img
+            src={lightboxImage}
+            alt={t('projects.lightbox.altExpanded')}
+            className="max-w-full max-h-[90vh] object-contain rounded-lg animate-scale-in"
+            onClick={(e) => e.stopPropagation()}
+          />
+        </div>
+      )}
     </section>
   );
 };
