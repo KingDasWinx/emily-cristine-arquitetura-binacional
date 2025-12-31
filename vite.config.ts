@@ -12,7 +12,7 @@ export default defineConfig(({ mode }) => {
   server: {
     host: "::",
     port: port,
-    allowedHosts: [".localhost", ".local", ".ngrok-free.app"],
+    allowedHosts: [".localhost", ".local", ".ngrok-free.app", ".kingdaswinx.com.br"],
   },
   plugins: [react(), mode === "development" && componentTagger()].filter(Boolean),
   resolve: {
