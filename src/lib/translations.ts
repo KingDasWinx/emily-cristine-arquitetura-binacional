@@ -13,7 +13,7 @@ export const translations = {
     'hero.eyebrow': 'Arquitetura de Alto Padrão',
     'hero.title': 'Nós transformamos espaços de alto padrão com alma, propósito e gestão completa do início ao fim.',
     'hero.subtitle': 'Atuamos em projetos residenciais e comerciais no Oeste do Paraná e Paraguai, criando ambientes que funcionam na vida real, sem improvisos ou dores de cabeça.',
-    'hero.cta': 'Fale diretamente comigo no WhatsApp',
+    'hero.cta': 'Fale diretamente conosco no WhatsApp',
     'hero.whatsapp.message': 'Olá! Vim pela landing e quero falar sobre um projeto.',
 
     // Journey Section
@@ -23,8 +23,8 @@ export const translations = {
     'journey.paragraph3': 'Fundei a <strong>HGM Empreendimentos</strong> para oferecer gestão completa de obras, atuando binacionalmente entre Brasil e Paraguai. Hoje, cada projeto que assino une técnica impecável, escuta profunda e sensibilidade humana, competindo com grandes estúdios de Curitiba pela transparência e resultados reais.',
 
     // Differentials Section
-    'differentials.title': 'Por Que Escolher Meu Trabalho?',
-    'differentials.subtitle': 'Arquitetura não é só estética. É responsabilidade técnica que protege seu investimento. Eu entrego:',
+    'differentials.title': 'Por Que Escolher Nosso Trabalho?',
+    'differentials.subtitle': 'Arquitetura não é só estética. É responsabilidade técnica que protege seu investimento. Nós entregamos:',
     'differentials.items.complete.title': 'Projeto executivo completo',
     'differentials.items.complete.description': 'Detalhamento total (elétrica, hidráulica, materiais, normas).',
     'differentials.items.transparent.title': 'Gestão transparente de custos',
@@ -35,21 +35,21 @@ export const translations = {
     'differentials.items.humanized.description': 'Espaços com alma que influenciam emoções e bem-estar.',
     'differentials.items.binational.title': 'Atuação binacional',
     'differentials.items.binational.description': 'Expertise em projetos BR/PY, incluindo shoppings fronteiriços.',
-    'differentials.targetNote': 'Trabalho com quem valoriza qualidade sobre preço baixo – <strong class="text-foreground">empresários, produtores rurais de alto padrão e marcas premium.</strong>',
+    'differentials.targetNote': 'Trabalhamos com quem valoriza qualidade sobre preço baixo – <strong class="text-foreground">empresários, produtores rurais de alto padrão e marcas premium.</strong>',
 
     // Audience Section
-    'audience.title': 'Para Quem Eu Trabalho',
+    'audience.title': 'Para Quem Nós Trabalhamos',
     'audience.subtitle': 'Ideal para:',
     'audience.items.entrepreneurs': 'Empresários de shoppings e lojas premium',
     'audience.items.farmers': 'Produtores rurais de alto padrão',
     'audience.items.clinics': 'Clínicas e laboratórios',
     'audience.items.brands': 'Marcas que buscam identidade forte',
     'audience.items.planning': 'Quem valoriza planejamento sobre preço baixo',
-    'audience.filterNote': '"Não atendo projetos improvisados ou sem orçamento para gestão profissional."',
+    'audience.filterNote': '"Não atendemos projetos improvisados ou sem orçamento para gestão profissional."',
 
     // Projects Section
-    'projects.title': 'Meus Projetos Destaque',
-    'projects.subtitle': 'Aqui estão cases reais que provam minha autoridade em projetos no Brasil e Paraguai.',
+    'projects.title': 'Nossos Projetos Destaque',
+    'projects.subtitle': 'Aqui estão cases reais que provam nossa autoridade em projetos no Brasil e Paraguai.',
     'projects.categories.all': 'Todos',
     'projects.categories.commercial': 'Comercial',
     'projects.categories.residential': 'Residencial',
@@ -59,7 +59,7 @@ export const translations = {
     'projectDetail.loading': 'Carregando projetos destaques...',
     'projectDetail.featured': 'Projeto Destaque',
     'projectDetail.challenge': 'Desafio',
-    'projectDetail.solution': 'Minha solução',
+    'projectDetail.solution': 'Nossa solução',
     'projectDetail.result': 'Resultado',
     'projectDetail.goTo': 'Ir para projeto',
     'projects.other1.title': 'Shoppings Premium: JBL e Ferracini',
@@ -76,7 +76,7 @@ export const translations = {
     'projects.other3.item3': 'Organização sem reformas radicais',
 
     // Testimonials Section
-    'testimonials.title': 'O Que Meus Clientes Dizem',
+    'testimonials.title': 'O Que Nossos Clientes Dizem',
     'testimonials.items.businesswoman.quote': 'Emily entregou um espaço com alma, sem dores de cabeça. Controle total de custos e prazos!',
     'testimonials.items.businesswoman.author': 'Empresária de importados',
     'testimonials.items.businesswoman.location': 'Palotina/PR',
@@ -89,11 +89,11 @@ export const translations = {
     'testimonials.goTo': 'Ir para depoimento',
 
     // Process Section
-    'process.title': 'Meu Processo Passo a Passo',
+    'process.title': 'Nosso Processo Passo a Passo',
     'process.items.listening.title': 'Escuta profunda',
-    'process.items.listening.description': 'Entendo suas necessidades, sonhos e desafios antes de qualquer traço.',
+    'process.items.listening.description': 'Entendemos suas necessidades, sonhos e desafios antes de qualquer traço.',
     'process.items.briefing.title': 'Briefing e conceito',
-    'process.items.briefing.description': 'Transformo suas ideias em um conceito visual claro e alinhado.',
+    'process.items.briefing.description': 'Transformamos suas ideias em um conceito visual claro e alinhado.',
     'process.items.technical.title': 'Projeto técnico completo',
     'process.items.technical.description': 'Desenvolvimento executivo com todos os detalhamentos necessários.',
     'process.items.budget.title': 'Orçamento por etapas',
@@ -114,6 +114,9 @@ export const translations = {
     'footer.tagline': 'Arquitetura de Alto Padrão',
     'footer.rights': 'Emily Cristine. Todos os direitos reservados.',
     'footer.location': 'Oeste do Paraná, Brasil & Paraguai',
+    'footer.social': 'Nossas Redes Sociais',
+    'footer.instagram': 'Siga no Instagram',
+    'footer.whatsapp': 'Fale no WhatsApp',
 
     // Common
     'common.location': 'Localização',
@@ -132,7 +135,7 @@ export const translations = {
     'hero.eyebrow': 'High-End Architecture',
     'hero.title': 'We transform high-end spaces with soul, purpose and complete management from start to finish.',
     'hero.subtitle': 'We work on residential and commercial projects in Western Paraná and Paraguay, creating environments that work in real life, without improvisation or headaches.',
-    'hero.cta': 'Talk to me directly on WhatsApp',
+    'hero.cta': 'Talk to us directly on WhatsApp',
     'hero.whatsapp.message': 'Hello! I came from the landing page and want to talk about a project.',
 
     // Journey Section
@@ -142,8 +145,8 @@ export const translations = {
     'journey.paragraph3': 'I founded <strong>HGM Empreendimentos</strong> to offer complete construction management, working binationally between Brazil and Paraguay. Today, every project I sign combines impeccable technique, deep listening, and human sensitivity, competing with major Curitiba studios through transparency and real results.',
 
     // Differentials Section
-    'differentials.title': 'Why Choose My Work?',
-    'differentials.subtitle': 'Architecture is not just aesthetics. It is technical responsibility that protects your investment. I deliver:',
+    'differentials.title': 'Why Choose Our Work?',
+    'differentials.subtitle': 'Architecture is not just aesthetics. It is technical responsibility that protects your investment. We deliver:',
     'differentials.items.complete.title': 'Complete executive project',
     'differentials.items.complete.description': 'Total detailing (electrical, plumbing, materials, standards).',
     'differentials.items.transparent.title': 'Transparent cost management',
@@ -154,21 +157,21 @@ export const translations = {
     'differentials.items.humanized.description': 'Spaces with soul that influence emotions and well-being.',
     'differentials.items.binational.title': 'Binational operation',
     'differentials.items.binational.description': 'Expertise in BR/PY projects, including border shopping centers.',
-    'differentials.targetNote': 'I work with those who value quality over low price – <strong class="text-foreground">entrepreneurs, high-end rural producers, and premium brands.</strong>',
+    'differentials.targetNote': 'We work with those who value quality over low price – <strong class="text-foreground">entrepreneurs, high-end rural producers, and premium brands.</strong>',
 
     // Audience Section
-    'audience.title': 'Who I Work For',
+    'audience.title': 'Who We Work For',
     'audience.subtitle': 'Ideal for:',
     'audience.items.entrepreneurs': 'Shopping center and premium store entrepreneurs',
     'audience.items.farmers': 'High-end rural producers',
     'audience.items.clinics': 'Clinics and laboratories',
     'audience.items.brands': 'Brands seeking strong identity',
     'audience.items.planning': 'Those who value planning over low price',
-    'audience.filterNote': '"I do not work on improvised projects or projects without a budget for professional management."',
+    'audience.filterNote': '"We do not work on improvised projects or projects without a budget for professional management."',
 
     // Projects Section
-    'projects.title': 'My Featured Projects',
-    'projects.subtitle': 'Here are real cases that prove my authority in projects in Brazil and Paraguay.',
+    'projects.title': 'Our Featured Projects',
+    'projects.subtitle': 'Here are real cases that prove our authority in projects in Brazil and Paraguay.',
     'projects.categories.all': 'All',
     'projects.categories.commercial': 'Commercial',
     'projects.categories.residential': 'Residential',
@@ -178,7 +181,7 @@ export const translations = {
     'projectDetail.loading': 'Loading featured projects...',
     'projectDetail.featured': 'Featured Project',
     'projectDetail.challenge': 'Challenge',
-    'projectDetail.solution': 'My solution',
+    'projectDetail.solution': 'Our solution',
     'projectDetail.result': 'Result',
     'projectDetail.goTo': 'Go to project',
     'projects.other1.title': 'Premium Shopping Centers: JBL and Ferracini',
@@ -195,7 +198,7 @@ export const translations = {
     'projects.other3.item3': 'Organization without radical renovations',
 
     // Testimonials Section
-    'testimonials.title': 'What My Clients Say',
+    'testimonials.title': 'What Our Clients Say',
     'testimonials.items.businesswoman.quote': 'Emily delivered a space with soul, without headaches. Total control of costs and deadlines!',
     'testimonials.items.businesswoman.author': 'Import Business Owner',
     'testimonials.items.businesswoman.location': 'Palotina/PR',
@@ -208,11 +211,11 @@ export const translations = {
     'testimonials.goTo': 'Go to testimonial',
 
     // Process Section
-    'process.title': 'My Step-by-Step Process',
+    'process.title': 'Our Step-by-Step Process',
     'process.items.listening.title': 'Deep listening',
-    'process.items.listening.description': 'I understand your needs, dreams, and challenges before any drawing.',
+    'process.items.listening.description': 'We understand your needs, dreams, and challenges before any drawing.',
     'process.items.briefing.title': 'Briefing and concept',
-    'process.items.briefing.description': 'I transform your ideas into a clear and aligned visual concept.',
+    'process.items.briefing.description': 'We transform your ideas into a clear and aligned visual concept.',
     'process.items.technical.title': 'Complete technical project',
     'process.items.technical.description': 'Executive development with all necessary details.',
     'process.items.budget.title': 'Budget by stages',
@@ -224,7 +227,7 @@ export const translations = {
 
     // CTA Section
     'cta.title': 'Well-done projects are not luxury.<br /><span class="text-primary-foreground/80">It\'s smart investment.</span>',
-    'cta.subtitle': 'With binational experience and humanized approach, I deliver results that last decades.',
+    'cta.subtitle': 'With binational experience and humanized approach, we deliver results that last decades.',
     'cta.button': 'Schedule on WhatsApp',
     'cta.whatsapp.message': 'Hello Emily! I saw your projects and want details for my commercial/residential space.',
 
@@ -233,6 +236,9 @@ export const translations = {
     'footer.tagline': 'High-End Architecture',
     'footer.rights': 'Emily Cristine. All rights reserved.',
     'footer.location': 'Western Paraná, Brazil & Paraguay',
+    'footer.social': 'Our Social Media',
+    'footer.instagram': 'Follow on Instagram',
+    'footer.whatsapp': 'Chat on WhatsApp',
 
     // Common
     'common.location': 'Location',
@@ -252,13 +258,16 @@ export const translations = {
     'footer.tagline': 'Arquitectura de Alto Nivel',
     'footer.rights': 'Emily Cristine. Todos los derechos reservados.',
     'footer.location': 'Oeste de Paraná, Brasil y Paraguay',
+    'footer.social': 'Nuestras Redes Sociales',
+    'footer.instagram': 'Síguenos en Instagram',
+    'footer.whatsapp': 'Chatea en WhatsApp',
 
 
     // Hero Section
     'hero.eyebrow': 'Arquitectura de Alto Nivel',
     'hero.title': 'Transformamos espacios de alto nivel con alma, propósito y gestión completa de principio a fin.',
     'hero.subtitle': 'Trabajamos en proyectos residenciales y comerciales en el Oeste de Paraná y Paraguay, creando ambientes que funcionan en la vida real, sin improvisación ni dolores de cabeza.',
-    'hero.cta': 'Háblame directamente por WhatsApp',
+    'hero.cta': 'Háblanos directamente por WhatsApp',
     'hero.whatsapp.message': '¡Hola! Vengo de la landing y quiero hablar sobre un proyecto.',
 
     // Journey Section
@@ -268,8 +277,8 @@ export const translations = {
     'journey.paragraph3': 'Fundé <strong>HGM Empreendimentos</strong> para ofrecer gestión completa de obras, actuando binacionalmente entre Brasil y Paraguay. Hoy, cada proyecto que firmo une técnica impecable, escucha profunda y sensibilidad humana, compitiendo con grandes estudios de Curitiba por la transparencia y resultados reales.',
 
     // Differentials Section
-    'differentials.title': '¿Por Qué Elegir Mi Trabajo?',
-    'differentials.subtitle': 'La arquitectura no es solo estética. Es responsabilidad técnica que protege su inversión. Yo entrego:',
+    'differentials.title': '¿Por Qué Elegir Nuestro Trabajo?',
+    'differentials.subtitle': 'La arquitectura no es solo estética. Es responsabilidad técnica que protege su inversión. Nosotros entregamos:',
     'differentials.items.complete.title': 'Proyecto ejecutivo completo',
     'differentials.items.complete.description': 'Detalle total (eléctrica, plomería, materiales, normas).',
     'differentials.items.transparent.title': 'Gestión transparente de costos',
@@ -280,21 +289,21 @@ export const translations = {
     'differentials.items.humanized.description': 'Espacios con alma que influyen en emociones y bienestar.',
     'differentials.items.binational.title': 'Actuación binacional',
     'differentials.items.binational.description': 'Experiencia en proyectos BR/PY, incluyendo centros comerciales fronterizos.',
-    'differentials.targetNote': 'Trabajo con quienes valoran la calidad sobre el precio bajo – <strong class="text-foreground">empresarios, productores rurales de alto nivel y marcas premium.</strong>',
+    'differentials.targetNote': 'Trabajamos con quienes valoran la calidad sobre el precio bajo – <strong class="text-foreground">empresarios, productores rurales de alto nivel y marcas premium.</strong>',
 
     // Audience Section
-    'audience.title': 'Para Quién Trabajo',
+    'audience.title': 'Para Quién Trabajamos',
     'audience.subtitle': 'Ideal para:',
     'audience.items.entrepreneurs': 'Empresarios de centros comerciales y tiendas premium',
     'audience.items.farmers': 'Productores rurales de alto nivel',
     'audience.items.clinics': 'Clínicas y laboratorios',
     'audience.items.brands': 'Marcas que buscan identidad fuerte',
     'audience.items.planning': 'Quienes valoran la planificación sobre el precio bajo',
-    'audience.filterNote': '"No trabajo en proyectos improvisados o sin presupuesto para gestión profesional."',
+    'audience.filterNote': '"No trabajamos en proyectos improvisados o sin presupuesto para gestión profesional."',
 
     // Projects Section
-    'projects.title': 'Mis Proyectos Destacados',
-    'projects.subtitle': 'Aquí están los casos reales que demuestran mi autoridad en proyectos en Brasil y Paraguay.',
+    'projects.title': 'Nuestros Proyectos Destacados',
+    'projects.subtitle': 'Aquí están los casos reales que demuestran nuestra autoridad en proyectos en Brasil y Paraguay.',
     'projects.categories.all': 'Todos',
     'projects.categories.commercial': 'Comercial',
     'projects.categories.residential': 'Residencial',
@@ -304,7 +313,7 @@ export const translations = {
     'projectDetail.loading': 'Cargando proyectos destacados...',
     'projectDetail.featured': 'Proyecto Destacado',
     'projectDetail.challenge': 'Desafío',
-    'projectDetail.solution': 'Mi solución',
+    'projectDetail.solution': 'Nuestra solución',
     'projectDetail.result': 'Resultado',
     'projectDetail.goTo': 'Ir al proyecto',
     'projects.other1.title': 'Centros Comerciales Premium: JBL y Ferracini',
@@ -321,7 +330,7 @@ export const translations = {
     'projects.other3.item3': 'Organización sin renovaciones radicales',
 
     // Testimonials Section
-    'testimonials.title': 'Lo Que Dicen Mis Clientes',
+    'testimonials.title': 'Lo Que Dicen Nuestros Clientes',
     'testimonials.items.businesswoman.quote': '¡Emily entregó un espacio con alma, sin dolores de cabeza. Control total de costos y plazos!',
     'testimonials.items.businesswoman.author': 'Empresaria de Importaciones',
     'testimonials.items.businesswoman.location': 'Palotina/PR',
@@ -334,11 +343,11 @@ export const translations = {
     'testimonials.goTo': 'Ir al testimonio',
 
     // Process Section
-    'process.title': 'Mi Proceso Paso a Paso',
+    'process.title': 'Nuestro Proceso Paso a Paso',
     'process.items.listening.title': 'Escucha profunda',
-    'process.items.listening.description': 'Entiendo sus necesidades, sueños y desafíos antes de cualquier trazo.',
+    'process.items.listening.description': 'Entendemos sus necesidades, sueños y desafíos antes de cualquier trazo.',
     'process.items.briefing.title': 'Briefing y concepto',
-    'process.items.briefing.description': 'Transformo sus ideas en un concepto visual claro y alineado.',
+    'process.items.briefing.description': 'Transformamos sus ideas en un concepto visual claro y alineado.',
     'process.items.technical.title': 'Proyecto técnico completo',
     'process.items.technical.description': 'Desarrollo ejecutivo con todos los detalles necesarios.',
     'process.items.budget.title': 'Presupuesto por etapas',
@@ -352,7 +361,7 @@ export const translations = {
     'cta.title': 'Un proyecto bien hecho no es lujo.<br /><span class="text-primary-foreground/80">Es inversión inteligente.</span>',
     'cta.button': 'Agenda en WhatsApp',
     'cta.whatsapp.message': '¡Hola Emily! Vi tus proyectos y quiero detalles para mi espacio comercial/residencial.',
-    'cta.subtitle': 'Con experiencia binacional y un enfoque humanizado, entrego resultados que duran décadas.',
+    'cta.subtitle': 'Con experiencia binacional y un enfoque humanizado, entregamos resultados que duran décadas.',
     
     // Common
     'common.location': 'Ubicación',
