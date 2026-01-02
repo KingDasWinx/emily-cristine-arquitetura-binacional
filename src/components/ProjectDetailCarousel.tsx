@@ -68,6 +68,8 @@ const ProjectDetailCarousel = () => {
   const [autoScrollKey, setAutoScrollKey] = useState(0);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const [lightboxImageIndex, setLightboxImageIndex] = useState(0);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
 
   // Auto scroll de imagens a cada 5 segundos
   useEffect(() => {
@@ -116,6 +118,58 @@ const ProjectDetailCarousel = () => {
     );
   };
 
+  // Minimum swipe distance (in px) to trigger navigation
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+    
+    if (isLeftSwipe) {
+      handleNextImage();
+    }
+    if (isRightSwipe) {
+      handlePreviousImage();
+    }
+  };
+
+  // Touch handlers for Lightbox
+  const onLightboxTouchStart = (e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onLightboxTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onLightboxTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+    
+    if (isLeftSwipe) {
+      handleLightboxNext();
+    }
+    if (isRightSwipe) {
+      handleLightboxPrevious();
+    }
+  };
+
   const currentDescription = featuredProject.description[language] || featuredProject.description['pt-BR'];
   const currentDetails = featuredProject.details[language] || featuredProject.details['pt-BR'];
 
@@ -126,15 +180,19 @@ const ProjectDetailCarousel = () => {
         {/* Image Gallery - Large Display */}
         <div className="relative">
           <div 
-            className="relative aspect-[16/9] lg:aspect-[21/9] overflow-hidden bg-muted cursor-pointer"
+            className="relative aspect-[16/9] lg:aspect-[21/9] overflow-hidden bg-muted cursor-pointer touch-pan-x"
             onClick={() => openLightbox(currentImageIndex)}
+            onTouchStart={onTouchStart}
+            onTouchMove={onTouchMove}
+            onTouchEnd={onTouchEnd}
           >
             <img
               src={featuredProject.images[currentImageIndex]}
               alt={`${featuredProject.title} - Imagem ${currentImageIndex + 1}`}
-              className="w-full h-full object-cover transition-opacity duration-700"
+              className="w-full h-full object-cover transition-opacity duration-700 select-none"
             />
           
+            {/* Navigation Arrows - Desktop Only */}
             {featuredProject.images.length > 1 && (
               <>
                 <button
@@ -142,7 +200,7 @@ const ProjectDetailCarousel = () => {
                     e.stopPropagation();
                     handlePreviousImage();
                   }}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-background/90 backdrop-blur-sm hover:bg-background text-foreground transition-all duration-300 shadow-lg hover:scale-110 z-10 border border-border"
+                  className="hidden md:block absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-background/90 backdrop-blur-sm hover:bg-background text-foreground transition-all duration-300 shadow-lg hover:scale-110 z-10 border border-border"
                   aria-label="Imagem anterior"
                 >
                   <ChevronLeft className="w-5 h-5" />
@@ -152,7 +210,7 @@ const ProjectDetailCarousel = () => {
                     e.stopPropagation();
                     handleNextImage();
                   }}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-background/90 backdrop-blur-sm hover:bg-background text-foreground transition-all duration-300 shadow-lg hover:scale-110 z-10 border border-border"
+                  className="hidden md:block absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-background/90 backdrop-blur-sm hover:bg-background text-foreground transition-all duration-300 shadow-lg hover:scale-110 z-10 border border-border"
                   aria-label="Próxima imagem"
                 >
                   <ChevronRight className="w-5 h-5" />
@@ -162,7 +220,7 @@ const ProjectDetailCarousel = () => {
 
             {/* Image Counter */}
             {featuredProject.images.length > 1 && (
-              <div className="absolute bottom-6 right-6 px-3 py-1.5 rounded-full bg-background/90 backdrop-blur-sm text-xs font-medium text-foreground border border-border pointer-events-none">
+              <div className="absolute bottom-4 right-4 md:bottom-6 md:right-6 px-2.5 py-1 md:px-3 md:py-1.5 rounded-full bg-background/90 backdrop-blur-sm text-[10px] md:text-xs font-medium text-foreground border border-border pointer-events-none">
                 {currentImageIndex + 1} / {featuredProject.images.length}
               </div>
             )}
@@ -260,28 +318,33 @@ const ProjectDetailCarousel = () => {
           </button>
 
           {/* Main Image Container */}
-          <div className="relative w-full h-full flex flex-col items-center justify-center">
+          <div 
+            className="relative w-full h-full flex flex-col items-center justify-center touch-pan-x"
+            onTouchStart={onLightboxTouchStart}
+            onTouchMove={onLightboxTouchMove}
+            onTouchEnd={onLightboxTouchEnd}
+          >
             {/* Large Image */}
             <div className="relative max-w-7xl max-h-[80vh] flex items-center justify-center mb-6">
               <img
                 src={featuredProject.images[lightboxImageIndex]}
                 alt={`${featuredProject.title} - Imagem ${lightboxImageIndex + 1}`}
-                className="max-w-full max-h-[80vh] object-contain rounded-lg"
+                className="max-w-full max-h-[80vh] object-contain rounded-lg select-none"
               />
 
-              {/* Navigation Arrows */}
+              {/* Navigation Arrows - Desktop Only */}
               {featuredProject.images.length > 1 && (
                 <>
                   <button
                     onClick={handleLightboxPrevious}
-                    className="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-all duration-300 hover:scale-110"
+                    className="hidden md:block absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-all duration-300 hover:scale-110"
                     aria-label="Imagem anterior"
                   >
                     <ChevronLeft className="w-6 h-6" />
                   </button>
                   <button
                     onClick={handleLightboxNext}
-                    className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-all duration-300 hover:scale-110"
+                    className="hidden md:block absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-all duration-300 hover:scale-110"
                     aria-label="Próxima imagem"
                   >
                     <ChevronRight className="w-6 h-6" />
@@ -290,19 +353,19 @@ const ProjectDetailCarousel = () => {
               )}
 
               {/* Image Counter */}
-              <div className="absolute top-4 left-4 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-sm text-sm font-medium text-white">
+              <div className="absolute top-4 left-4 px-2.5 py-1 md:px-3 md:py-1.5 rounded-full bg-white/10 backdrop-blur-sm text-xs md:text-sm font-medium text-white">
                 {lightboxImageIndex + 1} / {featuredProject.images.length}
               </div>
             </div>
 
             {/* Thumbnails Strip */}
             {featuredProject.images.length > 1 && (
-              <div className="flex gap-2 overflow-x-auto max-w-4xl px-4 pb-4">
+              <div className="flex gap-2 overflow-x-auto max-w-4xl px-4 pb-4 md:pb-4">
                 {featuredProject.images.map((image, index) => (
                   <button
                     key={index}
                     onClick={() => setLightboxImageIndex(index)}
-                    className={`relative flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-all duration-300 ${
+                    className={`relative flex-shrink-0 w-16 h-16 md:w-20 md:h-20 rounded-lg overflow-hidden border-2 transition-all duration-300 ${
                       index === lightboxImageIndex
                         ? "border-primary scale-110"
                         : "border-white/20 hover:border-white/50 opacity-60 hover:opacity-100"
