@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import HeroSection from "@/components/HeroSection";
 import JourneySection from "@/components/JourneySection";
 import DifferentialsSection from "@/components/DifferentialsSection";
+import ProjectDetailCarousel from "@/components/ProjectDetailCarousel";
 import ProjectsSection from "@/components/ProjectsSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import ProcessSection from "@/components/ProcessSection";

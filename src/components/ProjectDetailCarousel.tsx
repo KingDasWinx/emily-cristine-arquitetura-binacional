@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import { useLanguage } from "@/lib/LanguageContext";
 import projectCommercial from "@/assets/project-commercial-1.jpg";
-import projectResidential2 from "@/assets/project-residential-2.jpg";
-import projectPool from "@/assets/project-pool.png";
+import saltos1 from "@/assets/7-saltos1.png";
+import saltos2 from "@/assets/7-saltos2.png";
 
 interface ProjectDetails {
   challenge: string;
@@ -12,11 +12,10 @@ interface ProjectDetails {
 }
 
 interface FeaturedProject {
-  id: number;
   title: string;
   location: string;
   category: string;
-  image: string;
+  images: string[]; // Array de imagens
   description: {
     'pt-BR': string;
     'en': string;
@@ -29,204 +28,299 @@ interface FeaturedProject {
   };
 }
 
-const featuredProjects: FeaturedProject[] = [
-  {
-    id: 1,
-    title: "7 Saltos Resort",
-    location: "Salto del Guairá/PY",
-    category: "Comercial",
-    image: projectCommercial,
-    description: {
-      'pt-BR': "Projeto comercial de alto impacto na fronteira Brasil–Paraguai.",
-      'en': "High-impact commercial project on the Brazil-Paraguay border.",
-      'es': "Proyecto comercial de alto impacto en la frontera Brasil-Paraguay."
-    },
-    details: {
-      'pt-BR': {
-        challenge: "Criar shopping funcional e atrativo sem perder controle de custos e prazos.",
-        solution: "Projeto executivo completo + compatibilização técnica (elétrica, hidráulica, SPDA) + gestão total da obra.",
-        result: "Espaço organizado, sustentável e pronto para crescer, sem improvisos."
-      },
-      'en': {
-        challenge: "Create a functional and attractive shopping center without losing control of costs and deadlines.",
-        solution: "Complete executive project + technical compatibility (electrical, plumbing, lightning protection) + full construction management.",
-        result: "Organized, sustainable space ready to grow, without improvisation."
-      },
-      'es': {
-        challenge: "Crear un centro comercial funcional y atractivo sin perder el control de costos y plazos.",
-        solution: "Proyecto ejecutivo completo + compatibilización técnica (eléctrica, plomería, protección contra rayos) + gestión total de obra.",
-        result: "Espacio organizado, sostenible y listo para crecer, sin improvisación."
-      }
-    }
+// Projeto destaque único: 7 Saltos Resort
+const featuredProject: FeaturedProject = {
+  title: "7 Saltos Resort",
+  location: "Salto del Guairá/PY",
+  category: "Comercial",
+  images: [
+    projectCommercial,
+    saltos1,
+    saltos2,
+  ],
+  description: {
+    'pt-BR': "Requalificação completa de resort urbano de alto padrão com fachada icônica e experiência memorável.",
+    'en': "Complete requalification of a high-end urban resort with iconic facade and memorable experience.",
+    'es': "Recalificación completa de resort urbano de alto estándar con fachada icónica y experiencia memorable."
   },
-  {
-    id: 2,
-    title: "Residencial Alto Padrão",
-    location: "Oeste PR",
-    category: "Residencial",
-    image: projectResidential2,
-    description: {
-      'pt-BR': "Fachada contemporânea com elementos naturais e design funcional.",
-      'en': "Contemporary facade with natural elements and functional design.",
-      'es': "Fachada contemporánea con elementos naturales y diseño funcional."
+  details: {
+    'pt-BR': {
+      challenge: "Transformar experiência negativa do hóspede, com ambientes mal planejados, perda financeira invisível e falta de identidade da marca.",
+      solution: "Portal 7 Saltos icônico + redesign completo de 13 suítes + iluminação técnica + identidade visual padronizada + gestão transparente da obra.",
+      result: "Hotel que encanta e envolve hóspedes, fortalece a marca 7 Saltos como referência regional e gera retorno financeiro sustentável."
     },
-    details: {
-      'pt-BR': {
-        challenge: "Conciliar modernidade com sustentabilidade em projeto residencial de alto padrão.",
-        solution: "Integração de materiais naturais com tecnologia sustentável, projeto executivo detalhado com compatibilização de sistemas.",
-        result: "Residência moderna, funcional e ambientalmente responsável."
-      },
-      'en': {
-        challenge: "Reconcile modernity with sustainability in a high-end residential project.",
-        solution: "Integration of natural materials with sustainable technology, detailed executive project with system compatibility.",
-        result: "Modern, functional, and environmentally responsible residence."
-      },
-      'es': {
-        challenge: "Conciliar modernidad con sostenibilidad en proyecto residencial de alto nivel.",
-        solution: "Integración de materiales naturales con tecnología sostenible, proyecto ejecutivo detallado con compatibilización de sistemas.",
-        result: "Residencia moderna, funcional y ambientalmente responsable."
-      }
-    }
-  },
-  {
-    id: 3,
-    title: "Área de Lazer com Piscina",
-    location: "Oeste PR",
-    category: "Residencial",
-    image: projectPool,
-    description: {
-      'pt-BR': "Projeto de área externa integrada com paisagismo e deck em madeira.",
-      'en': "Outdoor area project integrated with landscaping and wooden deck.",
-      'es': "Proyecto de área externa integrada con paisajismo y deck de madera."
+    'en': {
+      challenge: "Transform negative guest experience, with poorly planned spaces, invisible financial losses, and lack of brand identity.",
+      solution: "Iconic 7 Saltos Portal + complete redesign of 13 suites + technical lighting + standardized visual identity + transparent construction management.",
+      result: "Hotel that enchants and engages guests, strengthens 7 Saltos brand as regional reference and generates sustainable financial return."
     },
-    details: {
-      'pt-BR': {
-        challenge: "Criar espaço de lazer integrado com natureza e funcionalidade.",
-        solution: "Projeto paisagístico integrado com deck em madeira premium, piscina com design contemporâneo e zonas de convivência.",
-        result: "Área externa acolhedora, funcional e integrada à paisagem natural."
-      },
-      'en': {
-        challenge: "Create a leisure space integrated with nature and functionality.",
-        solution: "Integrated landscaping project with premium wooden deck, contemporary design pool, and social areas.",
-        result: "Welcoming, functional outdoor area integrated with natural landscape."
-      },
-      'es': {
-        challenge: "Crear espacio de ocio integrado con naturaleza y funcionalidad.",
-        solution: "Proyecto paisajístico integrado con deck de madera premium, piscina con diseño contemporáneo y zonas de convivencia.",
-        result: "Área externa acogedora, funcional e integrada al paisaje natural."
-      }
+    'es': {
+      challenge: "Transformar experiencia negativa del huésped, con ambientes mal planificados, pérdida financiera invisible y falta de identidad de marca.",
+      solution: "Portal 7 Saltos icónico + rediseño completo de 13 suites + iluminación técnica + identidad visual estandarizada + gestión transparente de obra.",
+      result: "Hotel que encanta e involucra a los huéspedes, fortalece la marca 7 Saltos como referencia regional y genera retorno financiero sostenible."
     }
   }
-];
+};
 
 const ProjectDetailCarousel = () => {
   const { t, language } = useLanguage();
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [autoScrollKey, setAutoScrollKey] = useState(0);
+  const [isLightboxOpen, setIsLightboxOpen] = useState(false);
+  const [lightboxImageIndex, setLightboxImageIndex] = useState(0);
 
-  // Auto scroll a cada 8 segundos
+  // Auto scroll de imagens a cada 5 segundos
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prev) =>
-        prev === featuredProjects.length - 1 ? 0 : prev + 1
+      setCurrentImageIndex((prev) =>
+        prev === featuredProject.images.length - 1 ? 0 : prev + 1
       );
-    }, 8000);
+    }, 5000);
 
     return () => clearInterval(interval);
   }, [autoScrollKey]);
 
-  const handlePrevious = () => {
-    setCurrentIndex((prev) =>
-      prev === 0 ? featuredProjects.length - 1 : prev - 1
+  const handlePreviousImage = () => {
+    setCurrentImageIndex((prev) =>
+      prev === 0 ? featuredProject.images.length - 1 : prev - 1
     );
     setAutoScrollKey((prev) => prev + 1);
   };
 
-  const handleNext = () => {
-    setCurrentIndex((prev) =>
-      prev === featuredProjects.length - 1 ? 0 : prev + 1
+  const handleNextImage = () => {
+    setCurrentImageIndex((prev) =>
+      prev === featuredProject.images.length - 1 ? 0 : prev + 1
     );
     setAutoScrollKey((prev) => prev + 1);
   };
 
-  const currentProject = featuredProjects[currentIndex];
-  const currentDescription = currentProject.description[language] || currentProject.description['pt-BR'];
-  const currentDetails = currentProject.details[language] || currentProject.details['pt-BR'];
+  const openLightbox = (index: number) => {
+    setLightboxImageIndex(index);
+    setIsLightboxOpen(true);
+    setAutoScrollKey((prev) => prev + 1); // Pause auto-scroll
+  };
+
+  const closeLightbox = () => {
+    setIsLightboxOpen(false);
+  };
+
+  const handleLightboxPrevious = () => {
+    setLightboxImageIndex((prev) =>
+      prev === 0 ? featuredProject.images.length - 1 : prev - 1
+    );
+  };
+
+  const handleLightboxNext = () => {
+    setLightboxImageIndex((prev) =>
+      prev === featuredProject.images.length - 1 ? 0 : prev + 1
+    );
+  };
+
+  const currentDescription = featuredProject.description[language] || featuredProject.description['pt-BR'];
+  const currentDetails = featuredProject.details[language] || featuredProject.details['pt-BR'];
 
   return (
-    <div className="mt-20 bg-background rounded-2xl p-8 md:p-12 animate-fade-up">
-      <div className="relative">
-        {/* Carousel Content */}
-        <div className="grid md:grid-cols-2 gap-8 items-center min-h-96">
-          {/* Left Side - Text Content */}
-          <div className="animate-fade-in">
-            <span className="text-primary font-medium text-sm uppercase tracking-widest mb-2 block">
-              {t('projectDetail.featured')}
-            </span>
-            <h3 className="heading-subsection text-foreground mb-4">
-              {currentProject.title} – {currentProject.location}
-            </h3>
-            <p className="text-body text-muted-foreground mb-6">
+    <>
+      <div className="mt-20 animate-fade-up">
+        <div className="bg-card rounded-2xl overflow-hidden border border-border shadow-lg">
+        {/* Image Gallery - Large Display */}
+        <div className="relative">
+          <div 
+            className="relative aspect-[16/9] lg:aspect-[21/9] overflow-hidden bg-muted cursor-pointer"
+            onClick={() => openLightbox(currentImageIndex)}
+          >
+            <img
+              src={featuredProject.images[currentImageIndex]}
+              alt={`${featuredProject.title} - Imagem ${currentImageIndex + 1}`}
+              className="w-full h-full object-cover transition-opacity duration-700"
+            />
+          
+            {featuredProject.images.length > 1 && (
+              <>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handlePreviousImage();
+                  }}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-background/90 backdrop-blur-sm hover:bg-background text-foreground transition-all duration-300 shadow-lg hover:scale-110 z-10 border border-border"
+                  aria-label="Imagem anterior"
+                >
+                  <ChevronLeft className="w-5 h-5" />
+                </button>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    handleNextImage();
+                  }}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-background/90 backdrop-blur-sm hover:bg-background text-foreground transition-all duration-300 shadow-lg hover:scale-110 z-10 border border-border"
+                  aria-label="Próxima imagem"
+                >
+                  <ChevronRight className="w-5 h-5" />
+                </button>
+              </>
+            )}
+
+            {/* Image Counter */}
+            {featuredProject.images.length > 1 && (
+              <div className="absolute bottom-6 right-6 px-3 py-1.5 rounded-full bg-background/90 backdrop-blur-sm text-xs font-medium text-foreground border border-border pointer-events-none">
+                {currentImageIndex + 1} / {featuredProject.images.length}
+              </div>
+            )}
+          </div>
+
+          {/* Image Indicators */}
+          {featuredProject.images.length > 1 && (
+            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+              {featuredProject.images.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setCurrentImageIndex(index);
+                    setAutoScrollKey((prev) => prev + 1);
+                  }}
+                  className={`h-1.5 rounded-full transition-all duration-300 ${
+                    index === currentImageIndex
+                      ? "bg-primary w-8"
+                      : "bg-white/60 w-1.5 hover:bg-white/80 hover:w-4"
+                  }`}
+                  aria-label={`Ir para imagem ${index + 1}`}
+                />
+              ))}
+            </div>
+          )}
+        </div>
+
+        {/* Content Section */}
+        <div className="p-8 md:p-12">
+          <div className="max-w-5xl mx-auto">
+            {/* Title and Location */}
+            <div className="mb-8">
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mb-3">
+                {featuredProject.title}
+              </h2>
+              <p className="text-lg md:text-xl text-muted-foreground flex items-center gap-2">
+                <span className="inline-block w-1 h-5 bg-primary rounded-full" />
+                {featuredProject.location}
+              </p>
+            </div>
+
+            {/* Description */}
+            <p className="text-lg text-muted-foreground mb-10 leading-relaxed">
               {currentDescription}
             </p>
 
-            <div className="space-y-4">
-              <div>
-                <h4 className="font-medium text-foreground mb-1">{t('projectDetail.challenge')}:</h4>
-                <p className="text-muted-foreground text-sm">
+            {/* Details Grid */}
+            <div className="grid md:grid-cols-3 gap-6">
+              <div className="bg-muted/50 rounded-xl p-6 border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-md">
+                <h4 className="font-semibold text-foreground text-base mb-3 flex items-center gap-2">
+                  <span className="text-primary text-xl">●</span> 
+                  {t('projectDetail.challenge')}
+                </h4>
+                <p className="text-sm text-muted-foreground leading-relaxed">
                   {currentDetails.challenge}
                 </p>
               </div>
-              <div>
-                <h4 className="font-medium text-foreground mb-1">{t('projectDetail.solution')}:</h4>
-                <p className="text-muted-foreground text-sm">
+              
+              <div className="bg-muted/50 rounded-xl p-6 border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-md">
+                <h4 className="font-semibold text-foreground text-base mb-3 flex items-center gap-2">
+                  <span className="text-primary text-xl">●</span> 
+                  {t('projectDetail.solution')}
+                </h4>
+                <p className="text-sm text-muted-foreground leading-relaxed">
                   {currentDetails.solution}
                 </p>
               </div>
-              <div>
-                <h4 className="font-medium text-foreground mb-1">{t('projectDetail.result')}:</h4>
-                <p className="text-muted-foreground text-sm">
+              
+              <div className="bg-muted/50 rounded-xl p-6 border border-border hover:border-primary/50 transition-all duration-300 hover:shadow-md">
+                <h4 className="font-semibold text-foreground text-base mb-3 flex items-center gap-2">
+                  <span className="text-primary text-xl">●</span> 
+                  {t('projectDetail.result')}
+                </h4>
+                <p className="text-sm text-muted-foreground leading-relaxed">
                   {currentDetails.result}
                 </p>
               </div>
             </div>
           </div>
+        </div>
+      </div>
+      </div>
 
-          {/* Right Side - Image */}
-          <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
-            <img
-              src={currentProject.image}
-              alt={currentProject.title}
-              className="w-full h-full object-cover transition-opacity duration-500"
-            />
+      {/* Lightbox Modal */}
+      {isLightboxOpen && (
+        <div className="fixed inset-0 z-[9999] bg-black/95 flex items-center justify-center p-4">
+          {/* Close Button */}
+          <button
+            onClick={closeLightbox}
+            className="absolute top-4 right-4 p-2 rounded-full bg-white/10 hover:bg-white/20 text-white transition-all duration-300 z-[10000]"
+            aria-label="Fechar"
+          >
+            <X className="w-6 h-6" />
+          </button>
+
+          {/* Main Image Container */}
+          <div className="relative w-full h-full flex flex-col items-center justify-center">
+            {/* Large Image */}
+            <div className="relative max-w-7xl max-h-[80vh] flex items-center justify-center mb-6">
+              <img
+                src={featuredProject.images[lightboxImageIndex]}
+                alt={`${featuredProject.title} - Imagem ${lightboxImageIndex + 1}`}
+                className="max-w-full max-h-[80vh] object-contain rounded-lg"
+              />
+
+              {/* Navigation Arrows */}
+              {featuredProject.images.length > 1 && (
+                <>
+                  <button
+                    onClick={handleLightboxPrevious}
+                    className="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-all duration-300 hover:scale-110"
+                    aria-label="Imagem anterior"
+                  >
+                    <ChevronLeft className="w-6 h-6" />
+                  </button>
+                  <button
+                    onClick={handleLightboxNext}
+                    className="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/10 hover:bg-white/20 text-white transition-all duration-300 hover:scale-110"
+                    aria-label="Próxima imagem"
+                  >
+                    <ChevronRight className="w-6 h-6" />
+                  </button>
+                </>
+              )}
+
+              {/* Image Counter */}
+              <div className="absolute top-4 left-4 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-sm text-sm font-medium text-white">
+                {lightboxImageIndex + 1} / {featuredProject.images.length}
+              </div>
+            </div>
+
+            {/* Thumbnails Strip */}
+            {featuredProject.images.length > 1 && (
+              <div className="flex gap-2 overflow-x-auto max-w-4xl px-4 pb-4">
+                {featuredProject.images.map((image, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setLightboxImageIndex(index)}
+                    className={`relative flex-shrink-0 w-20 h-20 rounded-lg overflow-hidden border-2 transition-all duration-300 ${
+                      index === lightboxImageIndex
+                        ? "border-primary scale-110"
+                        : "border-white/20 hover:border-white/50 opacity-60 hover:opacity-100"
+                    }`}
+                  >
+                    <img
+                      src={image}
+                      alt={`Thumbnail ${index + 1}`}
+                      className="w-full h-full object-cover"
+                    />
+                  </button>
+                ))}
+              </div>
+            )}
           </div>
         </div>
-
-        {/* Navigation Controls */}
-        {featuredProjects.length > 1 && (
-          <div className="flex justify-center mt-8">
-            {/* Indicators */}
-            <div className="flex gap-2">
-              {featuredProjects.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => {
-                    setCurrentIndex(index);
-                    setAutoScrollKey((prev) => prev + 1);
-                  }}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                    index === currentIndex
-                      ? "bg-primary w-8"
-                      : "bg-muted-foreground/40 hover:bg-muted-foreground/60"
-                  }`}
-                  aria-label={`${t('projectDetail.goTo')} ${index + 1}`}
-                />
-              ))}
-            </div>
-          </div>
-        )}
-      </div>
-    </div>
+      )}
+    </>
   );
 };
 
