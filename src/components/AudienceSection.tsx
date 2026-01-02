@@ -44,13 +44,13 @@ const AudienceSection = () => {
             {audiences.map((item, index) => (
               <div
                 key={item.title}
-                className="flex items-center gap-4 p-4 rounded-lg bg-card hover:shadow-card transition-shadow duration-300 animate-fade-up"
+                className="flex items-center gap-4 p-4 rounded-lg bg-card hover:shadow-card hover:scale-105 hover:-translate-y-1 hover:bg-card/80 transition-all duration-300 animate-fade-up cursor-pointer group"
                 style={{ animationDelay: `${(index + 3) * 100}ms` }}
               >
-                <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <item.icon className="w-5 h-5 text-primary" />
+                <div className="w-10 h-10 rounded-full bg-primary/10 group-hover:bg-primary/20 flex items-center justify-center flex-shrink-0 transition-colors duration-300">
+                  <item.icon className="w-5 h-5 text-primary group-hover:scale-110 transition-transform duration-300" />
                 </div>
-                <span className="text-foreground text-left font-medium">
+                <span className="text-foreground text-left font-medium group-hover:text-primary transition-colors duration-300">
                   {item.title}
                 </span>
               </div>

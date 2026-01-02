@@ -84,7 +84,7 @@ export const translations = {
     'cta.subtitle': 'É investimento inteligente.',
     'cta.description': 'Com experiência binacional e abordagem humanizada, entrego resultados que duram décadas.',
     'cta.button': 'Agende no WhatsApp',
-    'cta.whatsapp.message': 'Olá Emily! Vi seus projetos (LG Importados, etc.) e quero detalhes para meu espaço comercial/residencial.',
+    'cta.whatsapp.message': 'Olá Emily! Vi seus projetos e quero detalhes para meu espaço comercial/residencial.',
 
     // Footer
     'footer.brand': 'Emily Cristine',
@@ -178,7 +178,7 @@ export const translations = {
     'cta.subtitle': "It's smart investment.",
     'cta.description': 'With binational experience and humanized approach, I deliver results that last decades.',
     'cta.button': 'Schedule on WhatsApp',
-    'cta.whatsapp.message': 'Hello Emily! I saw your projects (LG Imports, etc.) and want details for my commercial/residential space.',
+    'cta.whatsapp.message': 'Hello Emily! I saw your projects and want details for my commercial/residential space.',
 
     // Footer
     'footer.brand': 'Emily Cristine',
@@ -272,7 +272,7 @@ export const translations = {
     'cta.subtitle': 'Es inversión inteligente.',
     'cta.description': 'Con experiencia binacional y enfoque humanizado, entrego resultados que duran décadas.',
     'cta.button': 'Agenda en WhatsApp',
-    'cta.whatsapp.message': '¡Hola Emily! Vi tus proyectos (LG Importaciones, etc.) y quiero detalles para mi espacio comercial/residencial.',
+    'cta.whatsapp.message': '¡Hola Emily! Vi tus proyectos y quiero detalles para mi espacio comercial/residencial.',
 
     // Footer
     'footer.brand': 'Emily Cristine',

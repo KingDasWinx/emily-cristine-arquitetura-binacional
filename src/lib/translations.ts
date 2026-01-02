@@ -354,10 +354,6 @@ export const translations = {
     'cta.whatsapp.message': '¡Hola Emily! Vi tus proyectos y quiero detalles para mi espacio comercial/residencial.',
     'cta.subtitle': 'Con experiencia binacional y un enfoque humanizado, entrego resultados que duran décadas.',
     
-    // Footer
-    'footer.brand': 'Emily Cristine',
-    'footer.rights': 'Todos los derechos reservados.',
-
     // Common
     'common.location': 'Ubicación',
     'common.loading': 'Cargando...',

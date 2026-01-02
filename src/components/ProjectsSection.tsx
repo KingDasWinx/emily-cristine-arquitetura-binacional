@@ -17,8 +17,8 @@ import projectOutdoor from "@/assets/project-outdoor.png";
 const projects = [
   {
     id: 1,
-    title: "Shopping LG Importados",
-    location: "Palotina/PR",
+    title: "7 Saltos Resort",
+    location: "Salto del Guairá/PY",
     category: "Comercial",
     image: projectCommercial,
     description: "Projeto comercial de alto impacto na fronteira Brasil–Paraguai.",
