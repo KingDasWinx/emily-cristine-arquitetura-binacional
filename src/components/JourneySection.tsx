@@ -1,4 +1,5 @@
 import { useLanguage } from "@/lib/LanguageContext";
+import emily from "@/assets/emily-photo.jpg";
 
 const JourneySection = () => {
   const { t } = useLanguage();
@@ -19,7 +20,7 @@ const JourneySection = () => {
             <div className="animate-fade-up animate-delay-200">
               <div className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-elevated">
                 <img
-                  src="/src/assets/emily-photo.jpg"
+                  src={emily}
                   alt="Emily Cristine - Arquiteta e Urbanista"
                   className="w-full h-full object-cover"
                   onError={(e) => {
