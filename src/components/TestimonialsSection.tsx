@@ -14,12 +14,6 @@ const TestimonialsSection = () => {
     },
     {
       id: 2,
-      quote: t('testimonials.items.lgClient.quote'),
-      author: t('testimonials.items.lgClient.author'),
-      location: t('testimonials.items.lgClient.location'),
-    },
-    {
-      id: 3,
       quote: t('testimonials.items.farmer.quote'),
       author: t('testimonials.items.farmer.author'),
       location: t('testimonials.items.farmer.location'),

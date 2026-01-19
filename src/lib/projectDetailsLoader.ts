@@ -18,10 +18,6 @@ export interface ProjectDetail {
 
 // Mapping manual dos projetos - em produção isto seria carregado dinamicamente
 const projectsMap: Record<string, { folder: string; title: string }> = {
-  "shopping-lg-importados": {
-    folder: "shopping-lg-importados",
-    title: "Shopping LG Importados"
-  },
   "residencial-alto-padrao": {
     folder: "residencial-alto-padrao",
     title: "Residencial Alto Padrão"

@@ -74,10 +74,8 @@ export const translations = {
     'testimonials.note': 'Depoimentos reais de clientes satisfeitos',
     'testimonials.item1.quote': 'Emily entregou um espaço com alma, sem dores de cabeça. Controle total de custos e prazos!',
     'testimonials.item1.author': 'Empresária de importados',
-    'testimonials.item2.quote': 'Gestão impecável no shopping. Sem surpresas, só resultados.',
-    'testimonials.item2.author': 'Cliente LG Importados',
-    'testimonials.item3.quote': 'Transformou minha casa rural sem reformas radicais. Funciona na vida real!',
-    'testimonials.item3.author': 'Produtor rural',
+    'testimonials.item2.quote': 'Transformou minha casa rural sem reformas radicais. Funciona na vida real!',
+    'testimonials.item2.author': 'Produtor rural',
 
     // CTA Section
     'cta.title': 'Projeto bem feito não é luxo.',
@@ -168,10 +166,8 @@ export const translations = {
     'testimonials.note': 'Real testimonials from satisfied clients',
     'testimonials.item1.quote': 'Emily delivered a space with soul, without headaches. Total control of costs and deadlines!',
     'testimonials.item1.author': 'Import Business Owner',
-    'testimonials.item2.quote': 'Impeccable management at the shopping center. No surprises, just results.',
-    'testimonials.item2.author': 'LG Imports Client',
-    'testimonials.item3.quote': 'Transformed my rural house without radical renovations. It works in real life!',
-    'testimonials.item3.author': 'Rural Producer',
+    'testimonials.item2.quote': 'Transformed my rural house without radical renovations. It works in real life!',
+    'testimonials.item2.author': 'Rural Producer',
 
     // CTA Section
     'cta.title': 'Well-done projects are not luxury.',
@@ -262,10 +258,8 @@ export const translations = {
     'testimonials.note': 'Testimonios reales de clientes satisfechos',
     'testimonials.item1.quote': '¡Emily entregó un espacio con alma, sin dolores de cabeza. Control total de costos y plazos!',
     'testimonials.item1.author': 'Empresaria de Importaciones',
-    'testimonials.item2.quote': 'Gestión impecable en el centro comercial. Sin sorpresas, solo resultados.',
-    'testimonials.item2.author': 'Cliente LG Importaciones',
-    'testimonials.item3.quote': '¡Transformó mi casa rural sin renovaciones radicales. Funciona en la vida real!',
-    'testimonials.item3.author': 'Productor Rural',
+    'testimonials.item2.quote': '¡Transformó mi casa rural sin renovaciones radicales. Funciona en la vida real!',
+    'testimonials.item2.author': 'Productor Rural',
 
     // CTA Section
     'cta.title': 'Un proyecto bien hecho no es lujo.',
